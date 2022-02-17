@@ -1,0 +1,42 @@
+{'cmd': 'startGame', 'data': {'requestId': 1645102683709}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645102683709, 'answer': 'query'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645102683709, 'answer': 'query'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645102683709, 'answer': 'query'}}
+{'cmd': 'startGame', 'data': {'requestId': 1645102809298}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645102809298, 'answer': 'about'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645102809298, 'answer': 'funky'}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103087239, 'answer': 'about'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103087239, 'answer': 'slime'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103087239, 'answer': 'spike'}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103087239}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103698215}}
+{'cmd': 'startGame', 'data': {'requestId': 1645103825805}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103825805, 'answer': 'doggy'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103825805, 'answer': 'adept'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645103825805, 'answer': 'ideal'}}
+{'cmd': 'endGame', 'data': {'requestId': 1645103825805}}
+{'cmd': 'startGame', 'data': {'requestId': 1645105254796}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105254796, 'answer': 'about'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105254796, 'answer': 'yeast'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105254796, 'answer': 'point'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105254796, 'answer': 'elict'}}
+{'cmd': 'startGame', 'data': {'requestId': 1645105819676}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105819676, 'answer': 'jksmd'}}
+{'cmd': 'startGame', 'data': {'requestId': 1645105916894}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'jksmd'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'smart'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'click'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'paper'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'adict'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'amist'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'aimet'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'aimst'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'aimut'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'aumit'}}
+{'cmd': 'getAnswer', 'data': {'requestId': 1645105916894, 'answer': 'adder'}}
+{'cmd': 'endGame', 'data': {'requestId': 1645105916894}}
