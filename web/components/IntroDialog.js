@@ -4,8 +4,9 @@ import { height } from '@mui/system';
 export default function IntroDialog(props) {
     const introOpen = props.introOpen;
     const setIntroOpen = props.setIntroOpen;
+    const setHidden = props.setHidden
     return (<Dialog open={introOpen} fullWidth maxWidth="sm"
-    ><div style={{ display: "flex", flexDirection: "column", margin: "10px", marginLeft:"30px", marginRight:"30px"}}>
+    ><div style={{ display: "flex", flexDirection: "column", margin: "10px", marginLeft: "30px", marginRight: "30px" }}>
             <h3 style={{ alignSelf: "center", marginTop: "5px", marginBottom: "5px" }}>HOW TO PLAY</h3>
             <p style={{ marginBottom: "1px" }}>
                 Guess the <em>WORDLE</em> in six tries.
@@ -183,12 +184,23 @@ export default function IntroDialog(props) {
                 }}>E</div>
             </div>
             <p>The letter U is not in the word in any spot.</p>
-            <Divider flexItem/>
+            <Divider flexItem />
             <h4>A new WORDLE will be available each day!</h4>
             <div style={{ display: "flex", flexGrow: 1, flexDirection: "row" }}>
-                <div style={{ flexGrow: 4 }}>
-                    &nbsp;
-                </div>
+                <div style={{ flexGrow: 1 }}>&nbsp;</div>
+                <Button style={{
+                    flexGrow: 1,
+                    borderRadius: "3px",
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: "red",
+                    margin: "10px",
+                    color: "red"
+                }}
+                    onClick={() => { setIntroOpen(false); setHidden(true) }} >
+                    <div >hard</div>
+                </Button>
+                <div style={{ flexGrow: 1 }}>&nbsp;</div>
                 <Button style={{
                     flexGrow: .5,
                     borderRadius: "3px",

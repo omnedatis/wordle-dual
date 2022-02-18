@@ -2,7 +2,8 @@ import { Divider } from '@mui/material'
 import * as React from 'react'
 import IntroDialog from '../components/IntroDialog'
 import WordleHeader from '../components/WordleHeader'
-import BoardCard from '../components/BoardCard'
+import PlayerCard from '../components/PlayerCard'
+import MachineCard from '../components/MachineCard'
 import OverDialog from '../components/OverDialog'
 import Keyboard from '../components/keyboard'
 const fetcher = (path, data) => {
@@ -54,6 +55,7 @@ export default function App() {
   const [summary, setSummary] = React.useState('')
   const [overDialogOpen, setOverDialogOpen] = React.useState(false)
   const [letterState, setLetterState] = React.useState({})
+  const [hidden, setHidden] = React.useState(false)
   React.useEffect(() => {
     fetcher(`/api/startGame`, { "gameId": gameId }
     ).then(data => {
@@ -337,24 +339,28 @@ export default function App() {
                 setSummary('Shame...');
                 setCurrentRow(7);
                 setOverDialogOpen(true);
+                setHidden(false);
                 fetcher("api/endGame", { "gameId": gameId }).then((data)=> {})
               } else if (userCheck === "AAAAA") {
                 setGameOver(true);
                 setSummary('Congraduation!!');
                 setCurrentRow(7);
                 setOverDialogOpen(true);
+                setHidden(false);
                 fetcher("api/endGame", { "gameId": gameId }).then((data)=> {})
               } else if (machineCheck === "AAAAA") {
                 setGameOver(true);
                 setSummary('You Suck!');
                 setCurrentRow(7);
                 setOverDialogOpen(true);
+                setHidden(false);
                 fetcher("api/endGame", { "gameId": gameId }).then((data)=> {})
               } else if (currentRow > 6) {
                 setGameOver(true);
                 setSummary("It's too late...");
                 setCurrentRow(7);
                 setOverDialogOpen(true);
+                setHidden(false);
                 fetcher("api/endGame", { "gameId": gameId }).then((data)=> {})
               };
             });
@@ -372,15 +378,15 @@ export default function App() {
   };
   return (
     <div onKeyDown={handleKeyboardEvent} tabIndex={0}>
-      <IntroDialog introOpen={introOpen} setIntroOpen={setIntroOpen} />
+      <IntroDialog introOpen={introOpen} setIntroOpen={setIntroOpen} setHidden={setHidden} />
       <OverDialog open={overDialogOpen} setOpen={setOverDialogOpen} summary={summary} />
       <div className="d-flex" style={{ flexDirection: "column" }}>
         <WordleHeader />
         <Divider style={{ marginBottom: "20px" }} />
         <div style={{ display: "flex", flexDirection: "row", flexGrow: 3, margin: "10px", justifyContent: "center" }}>
-          <BoardCard boardState={playerState} currentAnswer={currentAnswer} currentRow={currentRow} />
+          <PlayerCard playerState={playerState} currentAnswer={currentAnswer} currentRow={currentRow} hidden={false}/>
           <Divider orientation="vertical" flexItem style={{ marginRight: "20px", marginLeft: "20px" }} />
-          <BoardCard boardState={machineState} currentAnswer={currentAnswer} currentRow={7} />
+          <MachineCard machineState={machineState} currentAnswer={currentAnswer} currentRow={7} hidden={hidden}/>
         </div>
         <div style={{ flexGrow: 2 }}>
           <Keyboard letterState={letterState}

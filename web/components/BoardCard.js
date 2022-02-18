@@ -3,10 +3,12 @@ export default function BoardCard(props) {
     const boardState = props.boardState;
     const currentAnswer = props.currentAnswer;
     const currentRow = props.currentRow;
+    const hidden = props.hidden;
     const rows = Array(6).fill().slice().map((e, ridx) => {
         const items = Array(5).fill().slice().map((e, idx) => {
             const row = ridx === currentRow ? currentAnswer : boardState[ridx];
             const ele = row[idx] 
+            const name = hidden ? null : ele.name
             return (
                 <div key={`row${ridx}_${idx}`} datastate="empty"
                     style={{margin: "2px",
@@ -20,7 +22,7 @@ export default function BoardCard(props) {
                     fontWeight:"bold",
                     color:ele.color,
                     backgroundColor:ele.backgroundColor}}>
-                    {ele.name}
+                    {name}
                 </div>);
         });
         return <div key={`col_${ridx}`} style={{ display: "flex", height:"60px", alignItems:"stretch"}}
