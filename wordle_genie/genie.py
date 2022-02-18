@@ -134,7 +134,7 @@ if __name__ == '__main__':
     warnings.filterwarnings('ignore')
     PORT=8082
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s : %(message)s')
-    httpd = ServerFactory.create("", PORT, cmd_handler, is_multithread=True, limited_threads_number=256)
+    httpd = ServerFactory.create("localhost", PORT, cmd_handler, is_multithread=True, limited_threads_number=256)
     print("Genie serving on port: "+str(httpd.server_port))
     httpd.serve_forever()
     

@@ -1,4 +1,4 @@
-const address = `http://192.168.0.118:8082`
+const address = `http://localhost:8082`
 const fetcher = (path, data) => {
   const url = path
   const req_content = {
