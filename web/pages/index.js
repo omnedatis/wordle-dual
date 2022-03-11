@@ -56,6 +56,35 @@ export default function App() {
   const [overDialogOpen, setOverDialogOpen] = React.useState(false)
   const [letterState, setLetterState] = React.useState({})
   const [hidden, setHidden] = React.useState(false)
+  const handleGameRestart  = function () {
+    setIntroOpen(true);
+    setPlayerState(Array(6).fill().map(() => {
+      const newRow = Array(5).fill().map(() => {
+        return new DefaultGrid;
+      });
+      return newRow
+    }));
+    setMachineState(Array(6).fill().map(() => {
+      const newRow = Array(5).fill().map(() => {
+        return new DefaultGrid;
+      });
+      return newRow
+    }));
+    setCurrentAnswer(Array(5).fill().map(() => {
+      return new DefaultGrid;
+    }));
+    setPosition(0);
+    setCurrentRow(0);
+    setGameId(Date.now());
+    setGameOver(false);
+    setSummary('');
+    setOverDialogOpen(false);
+    setLetterState({});
+    setHidden(false);
+    
+      fetcher(`/api/startGame`, { "gameId": gameId }
+      ).then(data => console.log('game restart'));
+  }
   React.useEffect(() => {
     fetcher(`/api/startGame`, { "gameId": gameId }
     ).then(data => {
@@ -276,14 +305,12 @@ export default function App() {
         case 'backspace':
           if (position >= 0) {
             let newPosition = position
-            if (position === 5) {
+
+            if (newPosition !== 0) {
               newPosition -= 1
             }
             let newAnswer = currentAnswer.slice()
             newAnswer[newPosition].name = null
-            if (newPosition !== 0) {
-              newPosition -= 1
-            }
             setCurrentAnswer(newAnswer)
             setPosition(newPosition);
           };
@@ -299,9 +326,9 @@ export default function App() {
               "gameId": gameId,
               "answer": answer
             }).then((data) => {
-              const userCheck = data.data[0];
-              const machineAnswer = data.data[1].split('');
-              const machineCheck = data.data[2];
+              const userCheck = data.data.response[0];
+              const machineAnswer = data.data.response[1].split('');
+              const machineCheck = data.data.response[2];
               if (userCheck === '') {
                 return
               }
@@ -379,7 +406,7 @@ export default function App() {
   return (
     <div onKeyDown={handleKeyboardEvent} tabIndex={0}>
       <IntroDialog introOpen={introOpen} setIntroOpen={setIntroOpen} setHidden={setHidden} />
-      <OverDialog open={overDialogOpen} setOpen={setOverDialogOpen} summary={summary} />
+      <OverDialog open={overDialogOpen} setOpen={setOverDialogOpen} summary={summary} restart={handleGameRestart} />
       <div className="d-flex" style={{ flexDirection: "column" }}>
         <WordleHeader />
         <Divider style={{ marginBottom: "20px" }} />
@@ -393,7 +420,8 @@ export default function App() {
             position={position}
             setPosition={setPosition}
             currentAnswer={currentAnswer}
-            setCurrentAnswer={setCurrentAnswer} />
+            setCurrentAnswer={setCurrentAnswer}
+            handleKeyboardEvent={handleKeyboardEvent} />
         </div>
       </div>
     </div>

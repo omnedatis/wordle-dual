@@ -123,7 +123,7 @@ if __name__ == '__main__':
             if isinstance(ret, Exception):
                 raise ret
             else:
-                resp_json["data"] = ret
+                resp_json["data"] = {"response":ret, "gameId":uid}
                 resp_json['status'] = STATUS_OK
         except Exception as esp:
             resp_json['status'] = STATUS_FAILED
